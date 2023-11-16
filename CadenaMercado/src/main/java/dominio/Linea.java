@@ -1,6 +1,6 @@
 
 package dominio;
 
-public class Linea {
+public abstract class Linea {
     
 }
