@@ -1,13 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
-/**
- *
- * @author USUARIO
- */
+import AccesoDatos.ProductoDAO;
+import dominio.Producto;
+
 public class ModeloProducto {
+    private Producto producto;
+    private ProductoDAO pDAO;
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
     
+    
+    // luego de obtener el producto actulizado por el set()
+    public void actualizarStock() {
+        pDAO.update(producto);
+    }
 }
