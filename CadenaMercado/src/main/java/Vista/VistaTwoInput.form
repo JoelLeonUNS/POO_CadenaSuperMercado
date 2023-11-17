@@ -32,7 +32,7 @@
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="txtFld_codigoBarras" alignment="0" max="32767" attributes="0"/>
-                  <Component id="bttn_finalizar" alignment="0" pref="200" max="32767" attributes="0"/>
+                  <Component id="bttn_aceptar" alignment="0" pref="200" max="32767" attributes="0"/>
                   <Component id="lbl_codigoBarras" max="32767" attributes="0"/>
                   <Component id="jLabel1" max="32767" attributes="0"/>
                   <Component id="jTextField1" max="32767" attributes="0"/>
@@ -53,14 +53,14 @@
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-              <Component id="bttn_finalizar" min="-2" max="-2" attributes="0"/>
+              <Component id="bttn_aceptar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="bttn_finalizar">
+    <Component class="javax.swing.JButton" name="bttn_aceptar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
         <Property name="actionCommand" type="java.lang.String" value="ACEPTAR_DOS"/>

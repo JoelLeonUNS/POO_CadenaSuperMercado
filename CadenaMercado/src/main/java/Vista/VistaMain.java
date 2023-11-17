@@ -23,7 +23,6 @@ public class VistaMain extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadena de Supermercado");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 

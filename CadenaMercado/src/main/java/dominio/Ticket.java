@@ -11,6 +11,10 @@ public class Ticket {
     private Cliente cliente;
     private String mensaje;
 
+    public Ticket() {
+        cliente = new Cliente();
+    }
+       
     public int getId() {
         return id;
     }

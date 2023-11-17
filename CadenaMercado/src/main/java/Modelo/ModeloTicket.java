@@ -1,7 +1,6 @@
 package Modelo;
 
 import AccesoDatos.TicketDAO;
-import dominio.Cliente;
 import dominio.Ticket;
 
 public class ModeloTicket {
@@ -9,9 +8,17 @@ public class ModeloTicket {
     private Ticket ticket;
     private TicketDAO tDAO;
 
+    public ModeloTicket() {
+        ticket = new Ticket();
+        tDAO = new TicketDAO();
+    }
+
+
     // Agrega un cliente
-    public void agregarCliente(Cliente cliente) {
-        
+    public void agregarCliente(String nombre, String apellido, String dni) {
+        ticket.getCliente().setNombre(nombre);
+        ticket.getCliente().setApellido(apellido);
+        ticket.getCliente().setDni(dni);
     }
 
     // Visualiza la lista de clientes
