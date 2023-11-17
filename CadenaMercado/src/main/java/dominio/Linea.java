@@ -5,9 +5,6 @@ public abstract class Linea {
     protected int id;
     protected int cantidad;
     protected Producto producto;
-    
-    public abstract void aplicarDescuento();
-    public void calcularSubtotal() {
-        
-    }
+
+    public abstract void calcularSubtotal();
 }

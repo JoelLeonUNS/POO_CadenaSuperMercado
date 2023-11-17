@@ -81,6 +81,7 @@ public class Controlador implements ActionListener {
                 iniciarVistaThreeInput();
             }
             case "COMPRAR" -> {
+                vOneInput.setLabel("Código de Barras");
                 iniciarVistaOneInput();
             }
             case "DEVOLVER" -> {
@@ -90,9 +91,11 @@ public class Controlador implements ActionListener {
                 iniciarVistaTwoInput();
             }
             case "ANULAR" -> {
-                iniciarVistaTwoInput();
+                vOneInput.setLabel("Nro. de Línea");
+                iniciarVistaOneInput();
             }
             case "DESCONTAR" -> {
+                vOneInput.setLabel("Código de Descuento");
                 iniciarVistaOneInput();
             }
             case "FINALIZAR" -> {

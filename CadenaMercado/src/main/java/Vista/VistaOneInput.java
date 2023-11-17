@@ -6,14 +6,18 @@ public class VistaOneInput extends javax.swing.JFrame {
         lookAndFeel();
         initComponents();
     }
+    
+    public void setLabel(String label) {
+        lbl_primero.setText(label);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         bttn_aceptar = new javax.swing.JButton();
-        lbl_codigoBarras = new javax.swing.JLabel();
-        txtFld_codigoBarras = new javax.swing.JTextField();
+        lbl_primero = new javax.swing.JLabel();
+        txtFld_primero = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadena de Supermercado");
@@ -24,10 +28,10 @@ public class VistaOneInput extends javax.swing.JFrame {
         bttn_aceptar.setActionCommand("ACEPTAR_UNO");
         bttn_aceptar.setMargin(new java.awt.Insets(6, 24, 6, 24));
 
-        lbl_codigoBarras.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_codigoBarras.setText("Código de Barras");
+        lbl_primero.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbl_primero.setText("Código de Barras");
 
-        txtFld_codigoBarras.setPreferredSize(new java.awt.Dimension(73, 30));
+        txtFld_primero.setPreferredSize(new java.awt.Dimension(73, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -36,18 +40,18 @@ public class VistaOneInput extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtFld_codigoBarras, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtFld_primero, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bttn_aceptar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(lbl_codigoBarras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_primero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(10, Short.MAX_VALUE)
-                .addComponent(lbl_codigoBarras)
+                .addComponent(lbl_primero)
                 .addGap(5, 5, 5)
-                .addComponent(txtFld_codigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtFld_primero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(bttn_aceptar)
                 .addGap(30, 30, 30))
@@ -77,7 +81,7 @@ public class VistaOneInput extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton bttn_aceptar;
-    private javax.swing.JLabel lbl_codigoBarras;
-    private javax.swing.JTextField txtFld_codigoBarras;
+    private javax.swing.JLabel lbl_primero;
+    private javax.swing.JTextField txtFld_primero;
     // End of variables declaration//GEN-END:variables
 }
