@@ -118,6 +118,7 @@ public class Controlador implements ActionListener {
             }
             case "FINALIZAR" -> {
                 switchBotones(false);
+                // impresión
             }
             // Botones Ventanas Emergentes
             case "ACEPTAR_UNO" -> { // aceptar para un input
