@@ -9,7 +9,7 @@ public class ModeloTicket {
     private Ticket ticket;
     private TicketDAO tDAO;
 
-    // Agrega un cliente a la lista de clientes
+    // Agrega un cliente
     public void agregarCliente(Cliente cliente) {
         
     }

@@ -1,0 +1,156 @@
+package Vista;
+
+public class VistaMain extends javax.swing.JFrame {
+
+    public VistaMain() {
+        lookAndFeel();
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAr = new javax.swing.JTextArea();
+        bttn_iniciar = new javax.swing.JButton();
+        bttn_comprar = new javax.swing.JButton();
+        bttn_repetir = new javax.swing.JButton();
+        bttn_anular = new javax.swing.JButton();
+        bttn_devolver = new javax.swing.JButton();
+        bttn_descontar = new javax.swing.JButton();
+        bttn_finalizar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadena de Supermercado");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
+
+        txtAr.setColumns(20);
+        txtAr.setRows(5);
+        txtAr.setText("Output");
+        txtAr.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        jScrollPane1.setViewportView(txtAr);
+
+        bttn_iniciar.setText("Iniciar");
+        bttn_iniciar.setActionCommand("INICIAR");
+        bttn_iniciar.setMargin(new java.awt.Insets(6, 12, 6, 12));
+        bttn_iniciar.setPreferredSize(new java.awt.Dimension(96, 30));
+
+        bttn_comprar.setText("Comprar");
+        bttn_comprar.setActionCommand("COMPRAR");
+        bttn_comprar.setMargin(new java.awt.Insets(6, 12, 6, 12));
+        bttn_comprar.setPreferredSize(new java.awt.Dimension(96, 30));
+
+        bttn_repetir.setText("Repetir");
+        bttn_repetir.setActionCommand("REPETIR");
+        bttn_repetir.setMargin(new java.awt.Insets(6, 12, 6, 12));
+        bttn_repetir.setPreferredSize(new java.awt.Dimension(96, 30));
+
+        bttn_anular.setText("Anular");
+        bttn_anular.setActionCommand("ANULAR");
+        bttn_anular.setMargin(new java.awt.Insets(6, 12, 6, 12));
+        bttn_anular.setPreferredSize(new java.awt.Dimension(96, 30));
+
+        bttn_devolver.setText("Devolver");
+        bttn_devolver.setActionCommand("DEVOLVER");
+        bttn_devolver.setMargin(new java.awt.Insets(6, 12, 6, 12));
+        bttn_devolver.setPreferredSize(new java.awt.Dimension(96, 30));
+
+        bttn_descontar.setText("Descontar");
+        bttn_descontar.setActionCommand("DESCONTAR");
+        bttn_descontar.setMargin(new java.awt.Insets(6, 12, 6, 12));
+        bttn_descontar.setPreferredSize(new java.awt.Dimension(96, 30));
+
+        bttn_finalizar.setText("Finalizar");
+        bttn_finalizar.setActionCommand("FINALIZAR");
+        bttn_finalizar.setMargin(new java.awt.Insets(6, 24, 6, 24));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("GENERADOR DE TICKET");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(bttn_repetir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(bttn_anular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(bttn_descontar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bttn_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(bttn_comprar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(bttn_devolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(bttn_finalizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bttn_comprar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttn_devolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttn_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bttn_repetir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttn_anular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bttn_descontar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bttn_finalizar)
+                .addGap(30, 30, 30))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void lookAndFeel() {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(VistaMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(VistaMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(VistaMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(VistaMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton bttn_anular;
+    public javax.swing.JButton bttn_comprar;
+    public javax.swing.JButton bttn_descontar;
+    public javax.swing.JButton bttn_devolver;
+    public javax.swing.JButton bttn_finalizar;
+    public javax.swing.JButton bttn_iniciar;
+    public javax.swing.JButton bttn_repetir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextArea txtAr;
+    // End of variables declaration//GEN-END:variables
+}

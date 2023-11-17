@@ -3,7 +3,7 @@ package Modelo;
 import AccesoDatos.ProductoDAO;
 import dominio.Producto;
 
-public class ModeloProducto {
+public class ModeloLinea {
     private Producto producto;
     private ProductoDAO pDAO;
 
