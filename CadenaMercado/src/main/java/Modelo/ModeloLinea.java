@@ -10,26 +10,31 @@ import dominio.Repeticion;
 import dominio.Venta;
 
 public class ModeloLinea {
-    private Producto producto;
     private Linea linea;
     private ProductoDAO pDAO;
-    
-    public Linea crearLinea(String linea){
-        switch(linea){
+
+    public ModeloLinea() {
+        pDAO = new ProductoDAO();
+    }
+       
+    public void crearLinea(String tipo){
+        switch(tipo){
             case "VENTA" -> {
-                return new Venta();
+                this.linea = new Venta();
             }
             case "REPETICION" -> {
-                return new Repeticion();
+                this.linea = new Repeticion();
             }
             case "ANULACION" -> {
-                return new Anulacion();
+                this.linea = new Anulacion();
             }
             case "DEVOLUCION" -> {
-                return new Devolucion();
+                this.linea = new Devolucion();
+            }
+            default -> {
+                this.linea = null;
             }
         }
-        return null;
     }
 
     public Producto getProducto() {
@@ -46,6 +51,17 @@ public class ModeloLinea {
 
     public void setLinea(Linea linea) {
         this.linea = linea;
+    }
+    
+    public void agregarProducto(String codigoBarra) {
+        for (Producto producto: pDAO.listado()) {
+            if (producto.getCodigo().equals(codigoBarra)) {
+                linea.setProducto(producto);
+                break;
+            } else {
+                linea.setProducto(null);
+            }
+        }
     }
     
     public double subtotal(){

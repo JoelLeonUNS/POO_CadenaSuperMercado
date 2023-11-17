@@ -82,6 +82,6 @@ public class VistaOneInput extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton bttn_aceptar;
     private javax.swing.JLabel lbl_primero;
-    private javax.swing.JTextField txtFld_primero;
+    public javax.swing.JTextField txtFld_primero;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,7 @@
 package Vista;
 
+import Modelo.ModeloLinea;
+
 public class VistaMain extends javax.swing.JFrame {
 
     public VistaMain() {
@@ -26,9 +28,9 @@ public class VistaMain extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
+        txtAr.setEditable(false);
         txtAr.setColumns(20);
         txtAr.setRows(5);
-        txtAr.setText("Output");
         txtAr.setMargin(new java.awt.Insets(8, 8, 8, 8));
         jScrollPane1.setViewportView(txtAr);
 
@@ -39,31 +41,37 @@ public class VistaMain extends javax.swing.JFrame {
 
         bttn_comprar.setText("Comprar");
         bttn_comprar.setActionCommand("COMPRAR");
+        bttn_comprar.setEnabled(false);
         bttn_comprar.setMargin(new java.awt.Insets(6, 12, 6, 12));
         bttn_comprar.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_repetir.setText("Repetir");
         bttn_repetir.setActionCommand("REPETIR");
+        bttn_repetir.setEnabled(false);
         bttn_repetir.setMargin(new java.awt.Insets(6, 12, 6, 12));
         bttn_repetir.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_anular.setText("Anular");
         bttn_anular.setActionCommand("ANULAR");
+        bttn_anular.setEnabled(false);
         bttn_anular.setMargin(new java.awt.Insets(6, 12, 6, 12));
         bttn_anular.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_devolver.setText("Devolver");
         bttn_devolver.setActionCommand("DEVOLVER");
+        bttn_devolver.setEnabled(false);
         bttn_devolver.setMargin(new java.awt.Insets(6, 12, 6, 12));
         bttn_devolver.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_descontar.setText("Descontar");
         bttn_descontar.setActionCommand("DESCONTAR");
+        bttn_descontar.setEnabled(false);
         bttn_descontar.setMargin(new java.awt.Insets(6, 12, 6, 12));
         bttn_descontar.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_finalizar.setText("Finalizar");
         bttn_finalizar.setActionCommand("FINALIZAR");
+        bttn_finalizar.setEnabled(false);
         bttn_finalizar.setMargin(new java.awt.Insets(6, 24, 6, 24));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -121,6 +129,28 @@ public class VistaMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Visualiza cada línea
+    public void visualizar(int nroLineas, ModeloLinea mLinea) {
+        txtAr.append(nroLineas + "  | " + prefijo(mLinea) + " " + mLinea.getLinea().getProducto().getNombre() + "...     " + mLinea.subtotal());
+    }
+
+    private String prefijo(ModeloLinea mLinea) {
+        switch (mLinea.getLinea().getClass().getSimpleName()){
+            case "Repeticion" -> {
+                return "(" + mLinea.getLinea().getCantidad() + "x)";
+            }
+            case "Anulacion" -> {
+                return "(Anul.)";
+            }
+            case "Devolucion" -> {
+                return "(Dev.)";
+            }
+            default -> {
+                return "";
+            }
+        }
+    }
+    
     private void lookAndFeel() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

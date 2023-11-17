@@ -3,6 +3,7 @@ package dominio;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class Ticket {
     private int id;
@@ -10,6 +11,7 @@ public class Ticket {
     private LocalTime hora;
     private Cliente cliente;
     private String mensaje;
+    private ArrayList<Linea> lineas = new ArrayList<>();
 
     public Ticket() {
         cliente = new Cliente();
@@ -53,6 +55,14 @@ public class Ticket {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public ArrayList<Linea> getLineas() {
+        return lineas;
+    }
+
+    public void setLineas(ArrayList<Linea> lineas) {
+        this.lineas = lineas;
     }
     
     

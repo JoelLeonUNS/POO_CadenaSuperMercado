@@ -92,9 +92,9 @@
       <SubComponents>
         <Component class="javax.swing.JTextArea" name="txtAr">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Output"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
               <Insets value="[8, 8, 8, 8]"/>
             </Property>
@@ -124,6 +124,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Comprar"/>
         <Property name="actionCommand" type="java.lang.String" value="COMPRAR"/>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
@@ -139,6 +140,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Repetir"/>
         <Property name="actionCommand" type="java.lang.String" value="REPETIR"/>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
@@ -154,6 +156,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Anular"/>
         <Property name="actionCommand" type="java.lang.String" value="ANULAR"/>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
@@ -169,6 +172,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Devolver"/>
         <Property name="actionCommand" type="java.lang.String" value="DEVOLVER"/>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
@@ -184,6 +188,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Descontar"/>
         <Property name="actionCommand" type="java.lang.String" value="DESCONTAR"/>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
@@ -199,6 +204,7 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Finalizar"/>
         <Property name="actionCommand" type="java.lang.String" value="FINALIZAR"/>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[6, 24, 6, 24]"/>
         </Property>

@@ -8,6 +8,14 @@ public class Producto {
     private double precio;
     private int stock;
 
+    public Producto(int id, String codigo, String nombre, double precio, int stock) {
+        this.id = id;
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
     public int getId() {
         return id;
     }

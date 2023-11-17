@@ -104,8 +104,8 @@ public class VistaThreeInput extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_apellido;
     private javax.swing.JLabel lbl_dni;
     private javax.swing.JLabel lbl_nombre;
-    private javax.swing.JTextField txtFld_apellido;
-    private javax.swing.JTextField txtFld_dni;
-    private javax.swing.JTextField txtFld_nombre;
+    public javax.swing.JTextField txtFld_apellido;
+    public javax.swing.JTextField txtFld_dni;
+    public javax.swing.JTextField txtFld_nombre;
     // End of variables declaration//GEN-END:variables
 }

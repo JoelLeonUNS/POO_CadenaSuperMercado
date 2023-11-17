@@ -91,7 +91,7 @@ public class VistaTwoInput extends javax.swing.JFrame {
     public javax.swing.JButton bttn_aceptar;
     private javax.swing.JLabel lbl_primero;
     private javax.swing.JLabel lbl_segundo;
-    private javax.swing.JTextField txtFld_primero;
-    private javax.swing.JTextField txtFld_segundo;
+    public javax.swing.JTextField txtFld_primero;
+    public javax.swing.JTextField txtFld_segundo;
     // End of variables declaration//GEN-END:variables
 }
