@@ -1,27 +1,14 @@
+
 package Visitor;
 
 import Modelo.ModeloLinea;
 import Modelo.ModeloTicket;
 
-public class Descuento implements IVisitor{
-    
-    private double porcentaje;
+public class Normal implements IVisitor {
 
-    public Descuento(double porcentaje) {
-        this.porcentaje = porcentaje;
-    }
-
-    public double getPorcentaje() {
-        return porcentaje;
-    }
-
-    public void setPorcentaje(double porcentaje) {
-        this.porcentaje = porcentaje;
-    }
-    
     @Override
     public double visitarLinea(ModeloLinea modelo) {
-        return modelo.subtotal() * (1 - porcentaje);
+        return modelo.subtotal();
     }
 
     @Override

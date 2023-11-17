@@ -4,6 +4,6 @@ import Modelo.ModeloLinea;
 import Modelo.ModeloTicket;
 
 public interface IVisitor {
-    public void visitarLinea(ModeloLinea modelo);
+    public double visitarLinea(ModeloLinea modelo);
     public void visitarTicket(ModeloTicket modelo);
 }
