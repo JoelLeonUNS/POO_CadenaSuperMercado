@@ -20,8 +20,14 @@ public class Controlador implements ActionListener {
     private VistaThreeInput vThreeInput;
 
     public Controlador() {
+        // Inicializar Modelos
         mProducto = new ModeloLinea();
         mTicket = new ModeloTicket();
+        // Inicializar Vistas
+        vista = new VistaMain();
+        vOneInput = new VistaOneInput();
+        vTwoInput = new VistaTwoInput();
+        vThreeInput = new VistaThreeInput();
         // Botones Vista Principal
         vista.bttn_iniciar.addActionListener(this); // botón iniciar
         vista.bttn_comprar.addActionListener(this); // botón comprar
@@ -72,22 +78,22 @@ public class Controlador implements ActionListener {
         switch (e.getActionCommand()) {
             // Botones Vista Principal
             case "INICIAR" -> {
-                
+                iniciarVistaThreeInput();
             }
             case "COMPRAR" -> {
-                
+                iniciarVistaOneInput();
             }
             case "DEVOLVER" -> {
-                
+                iniciarVistaTwoInput();
             }
             case "REPETIR" -> {
-                
+                iniciarVistaTwoInput();
             }
             case "ANULAR" -> {
-                
+                iniciarVistaTwoInput();
             }
             case "DESCONTAR" -> {
-                
+                iniciarVistaOneInput();
             }
             case "FINALIZAR" -> {
                 
@@ -95,12 +101,15 @@ public class Controlador implements ActionListener {
             // Botones Ventanas Emergentes
             case "ACEPTAR_UNO" -> { // aceptar para un input
                 vista.setEnabled(true);
+                vOneInput.dispose();
             }
             case "ACEPTAR_DOS" -> { // aceptar para dos inputs
                 vista.setEnabled(true);
+                vTwoInput.dispose();
             }
             case "AGREGAR" -> { // Agregar cliente (tres inputs)
                 vista.setEnabled(true);
+                vThreeInput.dispose();
             }
         }
     }

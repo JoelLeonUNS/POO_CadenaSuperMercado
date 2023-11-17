@@ -96,7 +96,7 @@
             <Property name="rows" type="int" value="5"/>
             <Property name="text" type="java.lang.String" value="Output"/>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-              <Insets value="[10, 10, 10, 10]"/>
+              <Insets value="[8, 8, 8, 8]"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -113,7 +113,7 @@
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[96, 30]"/>
+          <Dimension value="[110, 30]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -128,7 +128,7 @@
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[96, 30]"/>
+          <Dimension value="[110, 30]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -143,7 +143,7 @@
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[96, 30]"/>
+          <Dimension value="[110, 30]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -158,7 +158,7 @@
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[96, 30]"/>
+          <Dimension value="[110, 30]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -173,7 +173,7 @@
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[96, 30]"/>
+          <Dimension value="[110, 30]"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -188,7 +188,7 @@
           <Insets value="[6, 12, 6, 12]"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[96, 30]"/>
+          <Dimension value="[110, 30]"/>
         </Property>
       </Properties>
       <AuxValues>

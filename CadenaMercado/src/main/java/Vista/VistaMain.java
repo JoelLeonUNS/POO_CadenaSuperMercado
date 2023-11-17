@@ -29,38 +29,38 @@ public class VistaMain extends javax.swing.JFrame {
         txtAr.setColumns(20);
         txtAr.setRows(5);
         txtAr.setText("Output");
-        txtAr.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        txtAr.setMargin(new java.awt.Insets(8, 8, 8, 8));
         jScrollPane1.setViewportView(txtAr);
 
         bttn_iniciar.setText("Iniciar");
         bttn_iniciar.setActionCommand("INICIAR");
         bttn_iniciar.setMargin(new java.awt.Insets(6, 12, 6, 12));
-        bttn_iniciar.setPreferredSize(new java.awt.Dimension(96, 30));
+        bttn_iniciar.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_comprar.setText("Comprar");
         bttn_comprar.setActionCommand("COMPRAR");
         bttn_comprar.setMargin(new java.awt.Insets(6, 12, 6, 12));
-        bttn_comprar.setPreferredSize(new java.awt.Dimension(96, 30));
+        bttn_comprar.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_repetir.setText("Repetir");
         bttn_repetir.setActionCommand("REPETIR");
         bttn_repetir.setMargin(new java.awt.Insets(6, 12, 6, 12));
-        bttn_repetir.setPreferredSize(new java.awt.Dimension(96, 30));
+        bttn_repetir.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_anular.setText("Anular");
         bttn_anular.setActionCommand("ANULAR");
         bttn_anular.setMargin(new java.awt.Insets(6, 12, 6, 12));
-        bttn_anular.setPreferredSize(new java.awt.Dimension(96, 30));
+        bttn_anular.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_devolver.setText("Devolver");
         bttn_devolver.setActionCommand("DEVOLVER");
         bttn_devolver.setMargin(new java.awt.Insets(6, 12, 6, 12));
-        bttn_devolver.setPreferredSize(new java.awt.Dimension(96, 30));
+        bttn_devolver.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_descontar.setText("Descontar");
         bttn_descontar.setActionCommand("DESCONTAR");
         bttn_descontar.setMargin(new java.awt.Insets(6, 12, 6, 12));
-        bttn_descontar.setPreferredSize(new java.awt.Dimension(96, 30));
+        bttn_descontar.setPreferredSize(new java.awt.Dimension(110, 30));
 
         bttn_finalizar.setText("Finalizar");
         bttn_finalizar.setActionCommand("FINALIZAR");
