@@ -140,7 +140,6 @@ public class Controlador implements ActionListener {
             case "AGREGAR" -> { // Agregar cliente (tres inputs)
                 vista.setEnabled(true);
                 mTicket.agregarCliente(vThreeInput.txtFld_nombre.getText(), vThreeInput.txtFld_apellido.getText(), vThreeInput.txtFld_dni.getText());
-                vista.txtAr.append(mTicket.visualizarCliente() + "\n");
                 vThreeInput.dispose();
             }
         }

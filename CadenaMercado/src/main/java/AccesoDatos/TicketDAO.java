@@ -28,6 +28,10 @@ public class TicketDAO extends DAO<Ticket>{
     public void delete(Ticket obj) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    public int count() {
+        return listado().size();
+    }
 
     @Override
     public List<Ticket> listado() {

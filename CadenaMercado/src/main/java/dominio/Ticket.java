@@ -10,6 +10,8 @@ public class Ticket {
     private LocalDate fecha;
     private LocalTime hora;
     private Cliente cliente;
+    private double descuentoTotal;
+    private double total;
     private String mensaje;
     private ArrayList<Linea> lineas = new ArrayList<>();
 
@@ -49,6 +51,22 @@ public class Ticket {
         this.cliente = cliente;
     }
 
+    public double getDescuentoTotal() {
+        return descuentoTotal;
+    }
+
+    public void setDescuentoTotal(double descuentoTotal) {
+        this.descuentoTotal = descuentoTotal;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    
     public String getMensaje() {
         return mensaje;
     }

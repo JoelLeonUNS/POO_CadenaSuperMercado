@@ -1,6 +1,7 @@
 package Vista;
 
 import Modelo.ModeloLinea;
+import Modelo.ModeloTicket;
 
 public class VistaMain extends javax.swing.JFrame {
 
@@ -138,6 +139,43 @@ public class VistaMain extends javax.swing.JFrame {
         switch (mLinea.getLinea().getClass().getSimpleName()){
             case "Repeticion" -> {
                 return "(" + mLinea.getLinea().getCantidad() + "x)";
+            }
+            case "Anulacion" -> {
+                return "(Anul.)";
+            }
+            case "Devolucion" -> {
+                return "(Dev.)";
+            }
+            default -> {
+                return "";
+            }
+        }
+    }
+    
+    public void Imprimir(ModeloTicket mTicket) {
+        txtAr.setText("");
+        mTicket.getTicketBD();
+        txtAr.append("\nFecha: " + mTicket.getFecha());
+        txtAr.append("\nHora: " + mTicket.getHora());
+        txtAr.append("\t- - -");
+        for (int i = 0; i < mTicket.nroLineas(); i++) {
+            txtAr.append("\n" + (i + 1) + "  | " + prefijo(mTicket.getTipoLinea(i), mTicket.getLinea(i).getCantidad()) + " " +  mTicket.getLinea(i).getProducto().getNombre() + "...     " + mTicket.getLinea(i).calcularSubtotal());
+        }
+        txtAr.append("\nTotal: " + mTicket.calcularTotal());
+        txtAr.append("\nTotal: " + mTicket.calcularTotal());
+        txtAr.append("\t- - -");
+        txtAr.append("Nombre: " + mTicket.getNombre());
+        txtAr.append("Apellido: " + mTicket.getApellido());
+        txtAr.append("Dni: " + mTicket.getDni());
+        txtAr.append("\t- - -");
+        txtAr.append("Gracias por su visita");
+        txtAr.append("\t- - -");
+    }
+    
+    private String prefijo(String tipo, int cantidad) {
+        switch (tipo){
+            case "Repeticion" -> {
+                return "(" + cantidad + "x)";
             }
             case "Anulacion" -> {
                 return "(Anul.)";

@@ -3,6 +3,9 @@ package Modelo;
 import AccesoDatos.TicketDAO;
 import dominio.Linea;
 import dominio.Ticket;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class ModeloTicket {
 
@@ -14,6 +17,42 @@ public class ModeloTicket {
         tDAO = new TicketDAO();
     }
 
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+    
+    public LocalDate getFecha() {
+        return ticket.getFecha();
+    }
+
+    public LocalTime getHora() {
+        return ticket.getHora();
+    }
+    
+    public String getNombre() {
+        return ticket.getCliente().getNombre();
+    }
+
+    public String getApellido() {
+        return ticket.getCliente().getApellido();
+    }
+
+    public String getDni() {
+        return ticket.getCliente().getDni();
+    }
+    
+    public double getDescuentoTotal() {
+        return ticket.getDescuentoTotal();
+    }
+
+    public double getTotal() {
+        return ticket.getTotal();
+    }
+
     // Agrega un cliente
     public void agregarCliente(String nombre, String apellido, String dni) {
         ticket.getCliente().setNombre(nombre);
@@ -21,12 +60,20 @@ public class ModeloTicket {
         ticket.getCliente().setDni(dni);
     }
     
-    public String visualizarCliente() {
-        return "Dni: " + ticket.getCliente().getDni();
+    public Linea getLinea(int indice) {
+        return ticket.getLineas().get(indice);
     }
     
     public int nroLineas() {
         return ticket.getLineas().size() + 1;
+    }
+    
+    public ArrayList<Linea> getLineas() {
+        return ticket.getLineas();
+    }
+    
+    public String getTipoLinea(int indice) {
+        return ticket.getLineas().get(indice).getClass().getSimpleName();
     }
 
     // Agrega una nueva linea
@@ -35,8 +82,8 @@ public class ModeloTicket {
     }
 
     // Aplica un descuento a todas las ventas
-    public double aplicarDescuento(double porcentaje) {
-        return calcularTotal()*porcentaje;
+    public void aplicarDescuento(double porcentaje) {
+        ticket.setDescuentoTotal(ticket.getTotal()*porcentaje);
     }
     
     // Calcula el total de las ventas
@@ -45,6 +92,7 @@ public class ModeloTicket {
         for (Linea linea : ticket.getLineas()) {
             total += linea.calcularSubtotal();
         }
+        ticket.setTotal(total);
         return total;
     }
     
@@ -53,10 +101,12 @@ public class ModeloTicket {
         ticket = new Ticket(); // reset
     }
 
-    // Imprime el total de las ventas
-    public void imprimir() {
-        System.out.println("El total de las ventas es: " + calcularTotal());
+    public void getTicketBD() { // el ultimo
+        ticket =  tDAO.read(tDAO.count());
     }
     
+    public void getTicketBD(int indice) {
+        ticket = tDAO.read(indice);
+    }
     
 }
