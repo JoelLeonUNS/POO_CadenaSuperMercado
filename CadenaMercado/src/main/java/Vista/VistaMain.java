@@ -1,6 +1,5 @@
 package Vista;
 
-import Modelo.ModeloLinea;
 import Modelo.ModeloTicket;
 
 public class VistaMain extends javax.swing.JFrame {
@@ -131,9 +130,10 @@ public class VistaMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Visualiza cada línea
-    public void visualizar(ModeloTicket mTicket,  ModeloLinea mLinea) {
+    public void visualizar(ModeloTicket mTicket) {
         txtAr.setText("");
-        txtAr.append("Fecha: " + mTicket.getFecha());
+        txtAr.append("Ticket Nro." + (mTicket.getIdTicketBD() + 1));
+        txtAr.append("\n\nFecha: " + mTicket.getFecha());
         txtAr.append("\nHora: " + mTicket.getHora());
         txtAr.append("\n\t- - -");
         for (int i = 0; i < mTicket.nroLineas(); i++) {
@@ -149,7 +149,8 @@ public class VistaMain extends javax.swing.JFrame {
     public void imprimir(ModeloTicket mTicket) {
         txtAr.setText("");
         mTicket.getTicketBD();
-        txtAr.append("Fecha: " + mTicket.getFecha());
+        txtAr.append("Ticket Nro." + mTicket.getIdTicketBD());
+        txtAr.append("\n\nFecha: " + mTicket.getFecha());
         txtAr.append("\nHora: " + mTicket.getHora());
         txtAr.append("\n\t- - -");
         for (int i = 0; i < mTicket.nroLineas(); i++) {

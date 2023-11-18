@@ -117,10 +117,10 @@ public class Controlador implements ActionListener {
         switch (e.getActionCommand()) {
             // Botones Vista Principal
             case "INICIAR" -> {
-                vista.txtAr.setText("");
+                vista.txtAr.setText(" ");
                 mTicket.setFecha(LocalDate.now());
                 mTicket.setHora(LocalTime.now());
-                vista.visualizar(mTicket, mLinea);
+                vista.visualizar(mTicket);
                 iniciarVistaThreeInput();
                 switchCaso1(true);
             }
@@ -180,7 +180,7 @@ public class Controlador implements ActionListener {
                     }
                     case "DESCONTAR" -> {
                         mTicket.aplicarDescuento(Double.valueOf(vOneInput.txtFld_primero.getText()));
-                        vista.visualizar(mTicket, mLinea);
+                        vista.visualizar(mTicket);
                         vista.bttn_descontar.setEnabled(false);
                         vOneInput.dispose();
                     }
@@ -199,16 +199,20 @@ public class Controlador implements ActionListener {
 
             }
             case "ACEPTAR_DOS" -> { // aceptar para dos inputs
-                vista.setEnabled(true);
-                if (mProducto.verificarStock(Integer.valueOf(vTwoInput.txtFld_segundo.getText()), vTwoInput.txtFld_primero.getText())) {
-                    mLinea.setCantidad(Integer.valueOf(vTwoInput.txtFld_segundo.getText()));
-                    mLinea.agregarProducto(vTwoInput.txtFld_primero.getText());
-                    procesar();
-                    vTwoInput.dispose();
-                } else {
-                    vTwoInput.dispose();
-                    JOptionPane.showMessageDialog(null, "Cantidad disponible o Codigo no encontrado.");
+                Validacion v = new Validacion();
+                if (v.checkInteger(vTwoInput.txtFld_segundo.getText())) {
+                    vista.setEnabled(true);
+                    if (mProducto.verificarStock(Integer.valueOf(vTwoInput.txtFld_segundo.getText()), vTwoInput.txtFld_primero.getText())) {
+                        mLinea.setCantidad(Integer.valueOf(vTwoInput.txtFld_segundo.getText()));
+                        mLinea.agregarProducto(vTwoInput.txtFld_primero.getText());
+                        procesar();
+                        vTwoInput.dispose();
+                    } else {
+                        vTwoInput.dispose();
+                        JOptionPane.showMessageDialog(null, "Cantidad disponible o Codigo no encontrado.");
+                    }
                 }
+
             }
             case "AGREGAR" -> { // Agregar cliente (tres inputs)
                 vista.setEnabled(true);
@@ -222,7 +226,8 @@ public class Controlador implements ActionListener {
         mLinea.actualizarStock();
         mTicket.agregarLinea(mLinea.getLinea());
         mTicket.calcularTotal();
-        vista.visualizar(mTicket, mLinea);
+        mTicket.aplicarDescuento(0);
+        vista.visualizar(mTicket);
     }
 
 }

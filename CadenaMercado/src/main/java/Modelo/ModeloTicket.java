@@ -120,6 +120,10 @@ public class ModeloTicket {
         tDAO.create(ticket);
         ticket = new Ticket(); // reset
     }
+    
+    public int getIdTicketBD() {
+        return tDAO.count();
+    }
 
     public void getTicketBD() { // el ultimo
         ticket = tDAO.read(tDAO.count() - 1);
