@@ -7,13 +7,13 @@ public class Oferta2x1 implements IVisitor {
 
     @Override
     public double visitarLinea(ModeloLinea modelo) {
-        int unidadesCobrar;
-        int cantidad = modelo.getLinea().getCantidad();
-        
+        double unidadesCobrar;
+        double cantidad = modelo.getLinea().getCantidad();
+                
         if(cantidad % 2 == 0){
             return modelo.subtotal() / 2;
         }else{
-            unidadesCobrar = Math.round(cantidad / 2);
+            unidadesCobrar = Math.ceil(cantidad / 2);
         }
         return modelo.getProducto().getPrecio() * unidadesCobrar;
     }

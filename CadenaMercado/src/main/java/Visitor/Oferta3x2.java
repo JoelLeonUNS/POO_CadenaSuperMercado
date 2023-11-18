@@ -7,8 +7,8 @@ public class Oferta3x2 implements IVisitor {
 
     @Override
     public double visitarLinea(ModeloLinea modelo) {
-        int unidadesCobrar;
-        int cantidad = modelo.getLinea().getCantidad();
+        double unidadesCobrar;
+        double cantidad = modelo.getLinea().getCantidad();
         
         if(cantidad % 3 == 0){
             unidadesCobrar = cantidad / 3 * 2;
