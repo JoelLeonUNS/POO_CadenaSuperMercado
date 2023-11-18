@@ -64,11 +64,10 @@ public class ModeloLinea {
     public void agregarProducto(String codigoBarra) {
         for (Producto producto : pDAO.listado()) {
             if (producto.getCodigo().equals(codigoBarra)) {
-                linea.setProducto(producto);
+                setProducto(producto);
+                System.out.println("Producto encontrado");
                 break;
-            } else {
-                linea.setProducto(null);
-            }
+            } 
         }
         this.visitor = FabricaVisitor.fabricarVisitor(codigoBarra);
         aceptarVisitor();

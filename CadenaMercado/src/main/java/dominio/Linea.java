@@ -5,7 +5,7 @@ public abstract class Linea {
     protected int id;
     protected int cantidad;
     protected double subtotalNeto;
-    protected Producto producto;
+    protected Producto producto = new Producto();
 
     public abstract double calcularSubtotal();
         

@@ -22,7 +22,7 @@ public class ProductoDAO extends DAO<Producto>{
     @Override
     public Producto update(Producto obj) {
         System.out.println("Producto actualizado.");
-        return BD.getProductos().replace(obj.getId(), obj);
+        return BD.getProductos().replace(obj.getId()-1, obj);
     }
 
     @Override
