@@ -50,7 +50,11 @@ public class ModeloLinea {
     }
 
     public void setCantidad(int cantidad) {
-        this.linea.setCantidad(cantidad);
+        if(this.linea.getClass().getSimpleName().equals("Anulacion") || this.linea.getClass().getSimpleName().equals("Devolucion")){
+            this.linea.setCantidad(-cantidad);
+        }else{
+            this.linea.setCantidad(cantidad);
+        }
     }
 
     public Linea getLinea() {

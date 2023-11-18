@@ -160,28 +160,25 @@ public class Controlador implements ActionListener {
                 vista.setEnabled(true);
                 if (tipoLinea.equals("ANULACION")) {
                     Linea linea = mTicket.getLinea(Integer.valueOf(vOneInput.txtFld_primero.getText()) - 1);
-                    mLinea.setCantidad(-linea.getCantidad());
-                    mLinea.agregarProducto(linea.getProducto().getCodigo());
-                    //mLinea.setProducto(linea.getProducto());
-                    //mLinea.getLinea().setSubtotalNeto(-linea.getSubtotalNeto());
+                    if(linea.getClass().getSimpleName().equals("Anulacion")){
+                        System.out.println("No se puede anular esta linea");
+                    }else{
+                        mLinea.setCantidad(linea.getCantidad());
+                        mLinea.agregarProducto(linea.getProducto().getCodigo());
+                        procesar();
+                    }
                 } else {
                     mLinea.setCantidad(1);
                     mLinea.agregarProducto(vOneInput.txtFld_primero.getText());
+                    procesar();
                 }
-                mLinea.actualizarStock();
-                mTicket.agregarLinea(mLinea.getLinea());
-                mTicket.calcularTotal();
-                vista.visualizar(mTicket, mLinea);
                 vOneInput.dispose();
             }
             case "ACEPTAR_DOS" -> { // aceptar para dos inputs
                 vista.setEnabled(true);
                 mLinea.setCantidad(Integer.valueOf(vTwoInput.txtFld_segundo.getText()));
                 mLinea.agregarProducto(vTwoInput.txtFld_primero.getText());
-                mLinea.actualizarStock();
-                mTicket.agregarLinea(mLinea.getLinea());
-                mTicket.calcularTotal();
-                vista.visualizar(mTicket, mLinea);
+                procesar();
                 vTwoInput.dispose();
             }
             case "AGREGAR" -> { // Agregar cliente (tres inputs)
@@ -190,6 +187,13 @@ public class Controlador implements ActionListener {
                 vThreeInput.dispose();
             }
         }
+    }
+    
+    private void procesar(){
+        mLinea.actualizarStock();
+        mTicket.agregarLinea(mLinea.getLinea());
+        mTicket.calcularTotal();
+        vista.visualizar(mTicket, mLinea);
     }
 
 }
