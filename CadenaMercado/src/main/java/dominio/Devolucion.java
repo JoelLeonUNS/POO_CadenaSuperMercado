@@ -4,7 +4,7 @@ public class Devolucion extends Linea{
 
     @Override
     public double calcularSubtotal() {
-        return -this.producto.getPrecio() * this.cantidad;
+        return this.producto.getPrecio() * this.cantidad;
     }
 
     

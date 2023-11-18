@@ -6,6 +6,7 @@ import Vista.VistaMain;
 import Vista.VistaOneInput;
 import Vista.VistaThreeInput;
 import Vista.VistaTwoInput;
+import dominio.Linea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -122,6 +123,7 @@ public class Controlador implements ActionListener {
             case "COMPRAR" -> {
                 vista.bttn_devolver.setEnabled(false);
                 mLinea.crearLinea("VENTA");
+                tipoLinea = "VENTA";
                 vOneInput.setLabel("Código de Barras");
                 iniciarVistaOneInput();
                 switchCaso2(true);
@@ -157,7 +159,11 @@ public class Controlador implements ActionListener {
             case "ACEPTAR_UNO" -> { // aceptar para un input
                 vista.setEnabled(true);
                 if (tipoLinea.equals("ANULACION")) {
-                    mTicket.getLinea(Integer.valueOf(vOneInput.txtFld_primero.getText()) - 1);
+                    Linea linea = mTicket.getLinea(Integer.valueOf(vOneInput.txtFld_primero.getText()) - 1);
+                    mLinea.setCantidad(-linea.getCantidad());
+                    mLinea.agregarProducto(linea.getProducto().getCodigo());
+                    //mLinea.setProducto(linea.getProducto());
+                    //mLinea.getLinea().setSubtotalNeto(-linea.getSubtotalNeto());
                 } else {
                     mLinea.setCantidad(1);
                     mLinea.agregarProducto(vOneInput.txtFld_primero.getText());
