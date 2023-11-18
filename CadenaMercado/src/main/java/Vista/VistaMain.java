@@ -131,7 +131,7 @@ public class VistaMain extends javax.swing.JFrame {
 
     // Visualiza cada línea
     public void visualizar(int nroLineas, ModeloLinea mLinea) {
-        txtAr.append("\n" + nroLineas + "  | " + prefijo(mLinea) + " " + mLinea.getLinea().getProducto().getNombre() + "...     " + mLinea.subtotal());
+        txtAr.append("\n" + nroLineas + "  | " + prefijo(mLinea) + " " + mLinea.getLinea().getProducto().getNombre() + "...     " + mLinea.aceptarVisitor());
     }
 
     private String prefijo(ModeloLinea mLinea) {

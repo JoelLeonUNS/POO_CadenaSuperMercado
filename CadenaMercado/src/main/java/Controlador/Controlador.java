@@ -19,7 +19,7 @@ public class Controlador implements ActionListener {
     private VistaTwoInput vTwoInput;
     private VistaThreeInput vThreeInput;
     // Atributos
-
+    
 
     public Controlador() {
         // Inicializar Modelos

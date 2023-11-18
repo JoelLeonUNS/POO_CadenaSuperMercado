@@ -1,6 +1,8 @@
 package Modelo;
 
 import AccesoDatos.ProductoDAO;
+import Visitor.Descuento;
+import Visitor.FabricaVisitor;
 import Visitor.IVisitor;
 import dominio.Anulacion;
 import dominio.Devolucion;
@@ -12,6 +14,7 @@ import dominio.Venta;
 public class ModeloLinea {
     private Linea linea;
     private ProductoDAO pDAO;
+    private IVisitor visitor = new Descuento(0.5);
 
     public ModeloLinea() {
         pDAO = new ProductoDAO();
@@ -62,6 +65,7 @@ public class ModeloLinea {
                 linea.setProducto(null);
             }
         }
+        this.visitor = FabricaVisitor.fabricarVisitor(codigoBarra);
     }
     
     public double subtotal(){
@@ -78,7 +82,7 @@ public class ModeloLinea {
 //        
 //    }
     
-    public void aceptarVisitor(IVisitor visitor){
-        visitor.visitarLinea(this);
+    public double aceptarVisitor(){
+        return visitor.visitarLinea(this);
     }
 }
