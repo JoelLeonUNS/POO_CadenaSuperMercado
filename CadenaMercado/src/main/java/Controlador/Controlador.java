@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Controlador implements ActionListener {
+
     // Modelos
     private ModeloLinea mLinea;
     private ModeloTicket mTicket;
@@ -21,7 +22,7 @@ public class Controlador implements ActionListener {
     private VistaTwoInput vTwoInput;
     private VistaThreeInput vThreeInput;
     // Atributos
-    
+    private String tipoLinea;
 
     public Controlador() {
         // Inicializar Modelos
@@ -45,14 +46,14 @@ public class Controlador implements ActionListener {
         vTwoInput.bttn_aceptar.addActionListener(this); // botón aceptar (dos inputs)
         vThreeInput.bttn_agregar.addActionListener(this); // botón aceptar (tres inputs)
     }
-    
+
     public void iniciarVistaMain() {
         vista.setTitle("Cadena de Supermercado");
         vista.setLocationRelativeTo(null);
         vista.setResizable(false);
         vista.setVisible(true);
     }
-    
+
     public void iniciarVistaOneInput() {
         vOneInput.setTitle("Ingresar Datos");
         vOneInput.setLocationRelativeTo(null);
@@ -60,7 +61,7 @@ public class Controlador implements ActionListener {
         vOneInput.setVisible(true);
         vista.setEnabled(false);
     }
-    
+
     public void iniciarVistaTwoInput() {
         vTwoInput.setTitle("Ingresar Datos");
         vTwoInput.setLocationRelativeTo(null);
@@ -68,7 +69,7 @@ public class Controlador implements ActionListener {
         vTwoInput.setVisible(true);
         vista.setEnabled(false);
     }
-    
+
     public void iniciarVistaThreeInput() {
         vThreeInput.setTitle("Ingresar Cliente");
         vThreeInput.setLocationRelativeTo(null);
@@ -76,30 +77,30 @@ public class Controlador implements ActionListener {
         vThreeInput.setVisible(true);
         vista.setEnabled(false);
     }
-    
+
     private void switchCaso1(boolean b) {
         vista.bttn_iniciar.setEnabled(!b);
         vista.bttn_devolver.setEnabled(b);
         vista.bttn_comprar.setEnabled(b);
         vista.bttn_repetir.setEnabled(b);
     }
-    
+
     private void switchCaso2(boolean b) {
         vista.bttn_devolver.setEnabled(!b);
-        vista.bttn_anular.setEnabled(b);      
+        vista.bttn_anular.setEnabled(b);
         vista.bttn_descontar.setEnabled(b);
         vista.bttn_finalizar.setEnabled(b);
     }
-    
+
     private void switchCaso3(boolean b) {
-        vista.bttn_anular.setEnabled(!b);  
+        vista.bttn_anular.setEnabled(!b);
         vista.bttn_comprar.setEnabled(!b);
         vista.bttn_repetir.setEnabled(!b);
         vista.bttn_finalizar.setEnabled(b);
     }
-    
+
     private void switchCaso4(boolean b) {
-        vista.bttn_anular.setEnabled(!b); 
+        vista.bttn_anular.setEnabled(!b);
         vista.bttn_descontar.setEnabled(!b);
         vista.bttn_comprar.setEnabled(!b);
         vista.bttn_repetir.setEnabled(!b);
@@ -138,6 +139,7 @@ public class Controlador implements ActionListener {
             }
             case "ANULAR" -> {
                 mLinea.crearLinea("ANULACION");
+                tipoLinea = "ANULACION";
                 vOneInput.setLabel("Nro. de Línea");
                 iniciarVistaOneInput();
             }
@@ -154,8 +156,12 @@ public class Controlador implements ActionListener {
             // Botones Ventanas Emergentes
             case "ACEPTAR_UNO" -> { // aceptar para un input
                 vista.setEnabled(true);
-                mLinea.setCantidad(1);
-                mLinea.agregarProducto(vOneInput.txtFld_primero.getText());
+                if (tipoLinea.equals("ANULACION")) {
+                    mTicket.getLinea(Integer.valueOf(vOneInput.txtFld_primero.getText()) - 1);
+                } else {
+                    mLinea.setCantidad(1);
+                    mLinea.agregarProducto(vOneInput.txtFld_primero.getText());
+                }
                 mLinea.actualizarStock();
                 mTicket.agregarLinea(mLinea.getLinea());
                 mTicket.calcularTotal();
