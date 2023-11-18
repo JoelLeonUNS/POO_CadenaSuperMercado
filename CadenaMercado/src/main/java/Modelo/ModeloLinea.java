@@ -75,12 +75,9 @@ public class ModeloLinea {
     
     // luego de obtener el producto actulizado por el set()
     public void actualizarStock() {
+        linea.getProducto().setStock(linea.getProducto().getStock() - linea.getCantidad());
         pDAO.update(linea.getProducto());
     }
-    
-//    public void aplicarDescuento(double monto){
-//        
-//    }
     
     public double aceptarVisitor(){
         return visitor.visitarLinea(this);

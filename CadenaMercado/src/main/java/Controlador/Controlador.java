@@ -125,6 +125,7 @@ public class Controlador implements ActionListener {
                 vista.setEnabled(true);
                 mLinea.getLinea().setCantidad(1);
                 mLinea.agregarProducto(vOneInput.txtFld_primero.getText());
+                mLinea.actualizarStock();
                 vista.visualizar(mTicket.nroLineas(), mLinea);
                 vOneInput.dispose();
             }
@@ -132,6 +133,7 @@ public class Controlador implements ActionListener {
                 vista.setEnabled(true);
                 mLinea.getLinea().setCantidad(Integer.valueOf(vTwoInput.txtFld_segundo.getText()));
                 mLinea.agregarProducto(vTwoInput.txtFld_primero.getText());
+                mLinea.actualizarStock();
                 vista.visualizar(mTicket.nroLineas(), mLinea);
                 vTwoInput.dispose();
             }
