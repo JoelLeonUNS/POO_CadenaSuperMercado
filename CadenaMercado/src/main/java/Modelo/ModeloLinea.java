@@ -54,7 +54,6 @@ public class ModeloLinea {
         } else {
             this.linea.setCantidad(cantidad);
         }
-        
     }
 
     public Linea getLinea() {
