@@ -77,13 +77,32 @@ public class Controlador implements ActionListener {
         vista.setEnabled(false);
     }
     
-    private void switchBotones(boolean b) {
+    private void switchCaso1(boolean b) {
         vista.bttn_iniciar.setEnabled(!b);
-        vista.bttn_anular.setEnabled(b);
-        vista.bttn_comprar.setEnabled(b);
         vista.bttn_devolver.setEnabled(b);
-        vista.bttn_descontar.setEnabled(b);
+        vista.bttn_comprar.setEnabled(b);
         vista.bttn_repetir.setEnabled(b);
+    }
+    
+    private void switchCaso2(boolean b) {
+        vista.bttn_devolver.setEnabled(!b);
+        vista.bttn_anular.setEnabled(b);      
+        vista.bttn_descontar.setEnabled(b);
+        vista.bttn_finalizar.setEnabled(b);
+    }
+    
+    private void switchCaso3(boolean b) {
+        vista.bttn_anular.setEnabled(!b);  
+        vista.bttn_comprar.setEnabled(!b);
+        vista.bttn_repetir.setEnabled(!b);
+        vista.bttn_finalizar.setEnabled(b);
+    }
+    
+    private void switchCaso4(boolean b) {
+        vista.bttn_anular.setEnabled(!b); 
+        vista.bttn_descontar.setEnabled(!b);
+        vista.bttn_comprar.setEnabled(!b);
+        vista.bttn_repetir.setEnabled(!b);
         vista.bttn_finalizar.setEnabled(b);
     }
 
@@ -97,20 +116,25 @@ public class Controlador implements ActionListener {
                 mTicket.setHora(LocalTime.now());
                 vista.visualizar(mTicket, mLinea);
                 iniciarVistaThreeInput();
-                switchBotones(true);
+                switchCaso1(true);
             }
             case "COMPRAR" -> {
+                vista.bttn_devolver.setEnabled(false);
                 mLinea.crearLinea("VENTA");
                 vOneInput.setLabel("Código de Barras");
                 iniciarVistaOneInput();
+                switchCaso2(true);
             }
             case "DEVOLVER" -> {
                 mLinea.crearLinea("DEVOLUCION");
                 iniciarVistaTwoInput();
+                switchCaso4(true);
             }
             case "REPETIR" -> {
+                vista.bttn_devolver.setEnabled(false);
                 mLinea.crearLinea("REPETICION");
                 iniciarVistaTwoInput();
+                switchCaso2(true);
             }
             case "ANULAR" -> {
                 mLinea.crearLinea("ANULACION");
@@ -120,9 +144,10 @@ public class Controlador implements ActionListener {
             case "DESCONTAR" -> {
                 vOneInput.setLabel("Código de Descuento");
                 iniciarVistaOneInput();
+                switchCaso3(true);
             }
             case "FINALIZAR" -> {
-                switchBotones(false);
+                switchCaso1(false);
                 mTicket.finalizar();
                 vista.imprimir(mTicket);
             }

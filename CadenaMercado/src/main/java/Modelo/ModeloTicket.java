@@ -110,7 +110,7 @@ public class ModeloTicket {
     public double calcularTotal() {
         double total = 0;
         for (Linea linea : ticket.getLineas()) {
-            total += linea.calcularSubtotal();
+            total += linea.getSubtotalNeto();
         }
         ticket.setTotal(total);
         return total;
@@ -122,7 +122,7 @@ public class ModeloTicket {
     }
 
     public void getTicketBD() { // el ultimo
-        ticket =  tDAO.read(tDAO.count());
+        ticket = tDAO.read(tDAO.count());
     }
     
     public void getTicketBD(int indice) {

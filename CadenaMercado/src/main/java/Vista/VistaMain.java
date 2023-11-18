@@ -137,7 +137,7 @@ public class VistaMain extends javax.swing.JFrame {
         txtAr.append("\nHora: " + mTicket.getHora());
         txtAr.append("\n\t- - -");
         for (int i = 0; i < mTicket.nroLineas(); i++) {
-            txtAr.append("\n" + (i + 1) + "  | " + prefijo(mTicket.getTipoLinea(i), mTicket.getLinea(i).getCantidad()) + " " +  mTicket.getLinea(i).getProducto().getNombre() + "...     " + mLinea.aceptarVisitor());
+            txtAr.append("\n" + (i + 1) + "  | " + prefijo(mTicket.getTipoLinea(i), mTicket.getLinea(i).getCantidad()) + " " +  mTicket.getLinea(i).getProducto().getNombre() + "...     " + mTicket.getLinea(i).getSubtotalNeto());
         }
         txtAr.append("\nTotal: " + mTicket.getTotal());
         txtAr.append("\n\t- - -");
@@ -152,7 +152,7 @@ public class VistaMain extends javax.swing.JFrame {
         txtAr.append("\nHora: " + mTicket.getHora());
         txtAr.append("\n\t- - -");
         for (int i = 0; i < mTicket.nroLineas(); i++) {
-            txtAr.append("\n" + (i + 1) + "  | " + prefijo(mTicket.getTipoLinea(i), mTicket.getLinea(i).getCantidad()) + " " +  mTicket.getLinea(i).getProducto().getNombre() + "...     " + mTicket.getLinea(i).calcularSubtotal());
+            txtAr.append("\n" + (i + 1) + "  | " + prefijo(mTicket.getTipoLinea(i), mTicket.getLinea(i).getCantidad()) + " " +  mTicket.getLinea(i).getProducto().getNombre() + "...     " + mTicket.getLinea(i).getSubtotalNeto());
         }
         txtAr.append("\nTotal: " + mTicket.getTotal());
         txtAr.append("\nTotal (descontado): " + mTicket.getDescuentoTotal());

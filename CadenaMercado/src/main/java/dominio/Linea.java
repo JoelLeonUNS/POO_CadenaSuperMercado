@@ -4,6 +4,7 @@ package dominio;
 public abstract class Linea {
     protected int id;
     protected int cantidad;
+    protected double subtotalNeto;
     protected Producto producto;
 
     public abstract double calcularSubtotal();
@@ -31,6 +32,13 @@ public abstract class Linea {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-    
-    
+
+    public double getSubtotalNeto() {
+        return subtotalNeto;
+    }
+
+    public void setSubtotalNeto(double subtotalNeto) {
+        this.subtotalNeto = subtotalNeto;
+    }
+
 }

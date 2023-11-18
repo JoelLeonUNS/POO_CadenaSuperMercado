@@ -12,6 +12,7 @@ import dominio.Repeticion;
 import dominio.Venta;
 
 public class ModeloLinea {
+
     private Linea linea;
     private ProductoDAO pDAO;
     private IVisitor visitor = new Descuento(0.5);
@@ -19,9 +20,9 @@ public class ModeloLinea {
     public ModeloLinea() {
         pDAO = new ProductoDAO();
     }
-       
-    public void crearLinea(String tipo){
-        switch(tipo){
+
+    public void crearLinea(String tipo) {
+        switch (tipo) {
             case "VENTA" -> {
                 this.linea = new Venta();
             }
@@ -47,13 +48,9 @@ public class ModeloLinea {
     public void setProducto(Producto producto) {
         this.linea.setProducto(producto);
     }
-    
+
     public void setCantidad(int cantidad) {
-        if (linea.getClass().getSimpleName().equals("Anulacion") || linea.getClass().getSimpleName().equals("Devolucion")) {
-            this.linea.setCantidad(-cantidad);
-        } else {
-            this.linea.setCantidad(cantidad);
-        }
+        this.linea.setCantidad(cantidad);
     }
 
     public Linea getLinea() {
@@ -63,9 +60,9 @@ public class ModeloLinea {
     public void setLinea(Linea linea) {
         this.linea = linea;
     }
-    
+
     public void agregarProducto(String codigoBarra) {
-        for (Producto producto: pDAO.listado()) {
+        for (Producto producto : pDAO.listado()) {
             if (producto.getCodigo().equals(codigoBarra)) {
                 linea.setProducto(producto);
                 break;
@@ -74,9 +71,10 @@ public class ModeloLinea {
             }
         }
         this.visitor = FabricaVisitor.fabricarVisitor(codigoBarra);
+        aceptarVisitor();
     }
-    
-    public double subtotal(){
+
+    public double subtotal() {
         return this.linea.calcularSubtotal();
     }
 
@@ -85,8 +83,8 @@ public class ModeloLinea {
         linea.getProducto().setStock(linea.getProducto().getStock() - linea.getCantidad());
         pDAO.update(linea.getProducto());
     }
-    
-    public double aceptarVisitor(){
-        return visitor.visitarLinea(this);
+
+    public void aceptarVisitor() {
+        this.linea.setSubtotalNeto(visitor.visitarLinea(this));
     }
 }
