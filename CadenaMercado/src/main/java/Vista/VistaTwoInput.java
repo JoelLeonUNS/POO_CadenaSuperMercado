@@ -6,6 +6,14 @@ public class VistaTwoInput extends javax.swing.JFrame {
         lookAndFeel();
         initComponents();
     }
+    
+    public void setLabel(String label) {
+        lbl_primero.setText(label);
+    }
+    
+    public void setLabe2(String labe2) {
+        lbl_segundo.setText(labe2);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

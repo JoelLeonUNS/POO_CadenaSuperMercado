@@ -47,6 +47,15 @@ public class ModeloLinea {
     public void setProducto(Producto producto) {
         this.linea.setProducto(producto);
     }
+    
+    public void setCantidad(int cantidad) {
+        if (linea.getClass().getSimpleName().equals("Anulacion") || linea.getClass().getSimpleName().equals("Devolucion")) {
+            this.linea.setCantidad(-cantidad);
+        } else {
+            this.linea.setCantidad(cantidad);
+        }
+        
+    }
 
     public Linea getLinea() {
         return linea;
@@ -71,8 +80,7 @@ public class ModeloLinea {
     public double subtotal(){
         return this.linea.calcularSubtotal();
     }
-    
-    
+
     // luego de obtener el producto actulizado por el set()
     public void actualizarStock() {
         linea.getProducto().setStock(linea.getProducto().getStock() - linea.getCantidad());

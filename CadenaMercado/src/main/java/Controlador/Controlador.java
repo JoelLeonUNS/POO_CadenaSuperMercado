@@ -8,6 +8,8 @@ import Vista.VistaThreeInput;
 import Vista.VistaTwoInput;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Controlador implements ActionListener {
     // Modelos
@@ -91,6 +93,9 @@ public class Controlador implements ActionListener {
             // Botones Vista Principal
             case "INICIAR" -> {
                 vista.txtAr.setText("");
+                mTicket.setFecha(LocalDate.now());
+                mTicket.setHora(LocalTime.now());
+                vista.visualizar(mTicket, mLinea);
                 iniciarVistaThreeInput();
                 switchBotones(true);
             }
@@ -118,23 +123,28 @@ public class Controlador implements ActionListener {
             }
             case "FINALIZAR" -> {
                 switchBotones(false);
-                // impresión
+                mTicket.finalizar();
+                vista.imprimir(mTicket);
             }
             // Botones Ventanas Emergentes
             case "ACEPTAR_UNO" -> { // aceptar para un input
                 vista.setEnabled(true);
-                mLinea.getLinea().setCantidad(1);
+                mLinea.setCantidad(1);
                 mLinea.agregarProducto(vOneInput.txtFld_primero.getText());
                 mLinea.actualizarStock();
-                vista.visualizar(mTicket.nroLineas(), mLinea);
+                mTicket.agregarLinea(mLinea.getLinea());
+                mTicket.calcularTotal();
+                vista.visualizar(mTicket, mLinea);
                 vOneInput.dispose();
             }
             case "ACEPTAR_DOS" -> { // aceptar para dos inputs
                 vista.setEnabled(true);
-                mLinea.getLinea().setCantidad(Integer.valueOf(vTwoInput.txtFld_segundo.getText()));
+                mLinea.setCantidad(Integer.valueOf(vTwoInput.txtFld_segundo.getText()));
                 mLinea.agregarProducto(vTwoInput.txtFld_primero.getText());
                 mLinea.actualizarStock();
-                vista.visualizar(mTicket.nroLineas(), mLinea);
+                mTicket.agregarLinea(mLinea.getLinea());
+                mTicket.calcularTotal();
+                vista.visualizar(mTicket, mLinea);
                 vTwoInput.dispose();
             }
             case "AGREGAR" -> { // Agregar cliente (tres inputs)

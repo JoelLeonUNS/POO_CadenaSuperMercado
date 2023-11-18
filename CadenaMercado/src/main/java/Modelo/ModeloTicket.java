@@ -28,21 +28,41 @@ public class ModeloTicket {
     public LocalDate getFecha() {
         return ticket.getFecha();
     }
+    
+    public void setFecha(LocalDate fecha) {
+        ticket.setFecha(fecha);
+    }
 
     public LocalTime getHora() {
         return ticket.getHora();
     }
     
+    public void setHora(LocalTime hora) {
+        ticket.setHora(hora);
+    }
+    
     public String getNombre() {
         return ticket.getCliente().getNombre();
+    }
+    
+    public void setNombre(String nombre) {
+        ticket.getCliente().setNombre(nombre);
     }
 
     public String getApellido() {
         return ticket.getCliente().getApellido();
     }
+    
+    public void setApellido(String apellido) {
+        ticket.getCliente().setApellido(apellido);
+    }
 
     public String getDni() {
         return ticket.getCliente().getDni();
+    }
+    
+    public void setDni(String DNI) {
+        ticket.getCliente().setDni(DNI);
     }
     
     public double getDescuentoTotal() {
@@ -65,7 +85,7 @@ public class ModeloTicket {
     }
     
     public int nroLineas() {
-        return ticket.getLineas().size() + 1;
+        return ticket.getLineas().size();
     }
     
     public ArrayList<Linea> getLineas() {
