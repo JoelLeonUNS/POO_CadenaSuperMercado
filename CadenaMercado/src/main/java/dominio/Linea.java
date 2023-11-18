@@ -1,13 +1,21 @@
-
 package dominio;
 
 public abstract class Linea {
     protected int id;
     protected int cantidad;
     protected double subtotalNeto;
+    protected boolean anulable;
     protected Producto producto = new Producto();
 
     public abstract double calcularSubtotal();
+
+    public boolean isAnulable() {
+        return anulable;
+    }
+    
+    public void setAnulable(boolean anulable) {
+        this.anulable = anulable;
+    }
         
     public Producto getProducto() {
         return producto;

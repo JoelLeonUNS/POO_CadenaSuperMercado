@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.ModeloLinea;
+import Modelo.ModeloProducto;
 import Modelo.ModeloTicket;
 import Vista.VistaMain;
 import Vista.VistaOneInput;
@@ -11,10 +12,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import javax.swing.JOptionPane;
 
 public class Controlador implements ActionListener {
 
     // Modelos
+    private ModeloProducto mProducto;
     private ModeloLinea mLinea;
     private ModeloTicket mTicket;
     // Vistas
@@ -23,10 +26,11 @@ public class Controlador implements ActionListener {
     private VistaTwoInput vTwoInput;
     private VistaThreeInput vThreeInput;
     // Atributos
-    private String tipoLinea;
+    private String tipoLinea = "";
 
     public Controlador() {
         // Inicializar Modelos
+        mProducto = new ModeloProducto();
         mLinea = new ModeloLinea();
         mTicket = new ModeloTicket();
         // Inicializar Vistas
@@ -122,8 +126,8 @@ public class Controlador implements ActionListener {
             }
             case "COMPRAR" -> {
                 vista.bttn_devolver.setEnabled(false);
-                mLinea.crearLinea("VENTA");
                 tipoLinea = "VENTA";
+                mLinea.crearLinea("VENTA");
                 vOneInput.setLabel("Código de Barras");
                 iniciarVistaOneInput();
                 switchCaso2(true);
@@ -135,6 +139,7 @@ public class Controlador implements ActionListener {
             }
             case "REPETIR" -> {
                 vista.bttn_devolver.setEnabled(false);
+                tipoLinea = "REPETICION";
                 mLinea.crearLinea("REPETICION");
                 iniciarVistaTwoInput();
                 switchCaso2(true);
@@ -146,7 +151,8 @@ public class Controlador implements ActionListener {
                 iniciarVistaOneInput();
             }
             case "DESCONTAR" -> {
-                vOneInput.setLabel("Código de Descuento");
+                tipoLinea = "DESCONTAR";
+                vOneInput.setLabel("Porcentaje de Descuento");
                 iniciarVistaOneInput();
                 switchCaso3(true);
             }
@@ -158,28 +164,51 @@ public class Controlador implements ActionListener {
             // Botones Ventanas Emergentes
             case "ACEPTAR_UNO" -> { // aceptar para un input
                 vista.setEnabled(true);
-                if (tipoLinea.equals("ANULACION")) {
-                    Linea linea = mTicket.getLinea(Integer.valueOf(vOneInput.txtFld_primero.getText()) - 1);
-                    if(linea.getClass().getSimpleName().equals("Anulacion")){
-                        System.out.println("No se puede anular esta linea");
-                    }else{
-                        mLinea.setCantidad(linea.getCantidad());
-                        mLinea.agregarProducto(linea.getProducto().getCodigo());
-                        procesar();
+                switch (tipoLinea) {
+                    case "ANULACION" -> {
+                        Linea linea = mTicket.getLinea(Integer.valueOf(vOneInput.txtFld_primero.getText()) - 1);
+                        if (linea.isAnulable()) {
+                            linea.setAnulable(false);
+                            mLinea.setCantidad(linea.getCantidad());
+                            mLinea.agregarProducto(linea.getProducto().getCodigo());
+                            procesar();
+                            vOneInput.dispose();
+                        } else {
+                            vOneInput.dispose();
+                            JOptionPane.showMessageDialog(null, "No se puede anular esta linea");
+                        }
                     }
-                } else {
-                    mLinea.setCantidad(1);
-                    mLinea.agregarProducto(vOneInput.txtFld_primero.getText());
-                    procesar();
+                    case "DESCONTAR" -> {
+                        mTicket.aplicarDescuento(Double.valueOf(vOneInput.txtFld_primero.getText()));
+                        vista.visualizar(mTicket, mLinea);
+                        vista.bttn_descontar.setEnabled(false);
+                        vOneInput.dispose();
+                    }
+                    default -> {
+                        if (mProducto.verificarStock(1, vOneInput.txtFld_primero.getText())) {
+                            mLinea.setCantidad(1);
+                            mLinea.agregarProducto(vOneInput.txtFld_primero.getText());
+                            procesar();
+                            vOneInput.dispose();
+                        } else {
+                            vTwoInput.dispose();
+                            JOptionPane.showMessageDialog(null, "Cantidad disponible o Codigo no encontrado.");
+                        }
+                    }
                 }
-                vOneInput.dispose();
+
             }
             case "ACEPTAR_DOS" -> { // aceptar para dos inputs
                 vista.setEnabled(true);
-                mLinea.setCantidad(Integer.valueOf(vTwoInput.txtFld_segundo.getText()));
-                mLinea.agregarProducto(vTwoInput.txtFld_primero.getText());
-                procesar();
-                vTwoInput.dispose();
+                if (mProducto.verificarStock(Integer.valueOf(vTwoInput.txtFld_segundo.getText()), vTwoInput.txtFld_primero.getText())) {
+                    mLinea.setCantidad(Integer.valueOf(vTwoInput.txtFld_segundo.getText()));
+                    mLinea.agregarProducto(vTwoInput.txtFld_primero.getText());
+                    procesar();
+                    vTwoInput.dispose();
+                } else {
+                    vTwoInput.dispose();
+                    JOptionPane.showMessageDialog(null, "Cantidad disponible o Codigo no encontrado.");
+                }
             }
             case "AGREGAR" -> { // Agregar cliente (tres inputs)
                 vista.setEnabled(true);
@@ -188,8 +217,8 @@ public class Controlador implements ActionListener {
             }
         }
     }
-    
-    private void procesar(){
+
+    private void procesar() {
         mLinea.actualizarStock();
         mTicket.agregarLinea(mLinea.getLinea());
         mTicket.calcularTotal();

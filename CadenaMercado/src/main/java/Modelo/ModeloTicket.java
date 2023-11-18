@@ -103,7 +103,7 @@ public class ModeloTicket {
 
     // Aplica un descuento a todas las ventas
     public void aplicarDescuento(double porcentaje) {
-        ticket.setDescuentoTotal(ticket.getTotal()*porcentaje);
+        ticket.setDescuentoTotal(ticket.getTotal()*(1-porcentaje/100));
     }
     
     // Calcula el total de las ventas
@@ -122,7 +122,7 @@ public class ModeloTicket {
     }
 
     public void getTicketBD() { // el ultimo
-        ticket = tDAO.read(tDAO.count());
+        ticket = tDAO.read(tDAO.count() - 1);
     }
     
     public void getTicketBD(int indice) {

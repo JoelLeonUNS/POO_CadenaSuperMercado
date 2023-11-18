@@ -133,13 +133,14 @@ public class VistaMain extends javax.swing.JFrame {
     // Visualiza cada línea
     public void visualizar(ModeloTicket mTicket,  ModeloLinea mLinea) {
         txtAr.setText("");
-        txtAr.append("\nFecha: " + mTicket.getFecha());
+        txtAr.append("Fecha: " + mTicket.getFecha());
         txtAr.append("\nHora: " + mTicket.getHora());
         txtAr.append("\n\t- - -");
         for (int i = 0; i < mTicket.nroLineas(); i++) {
-            txtAr.append("\n" + (i + 1) + "  | " + prefijo(mTicket.getTipoLinea(i), mTicket.getLinea(i).getCantidad()) + " " +  mTicket.getLinea(i).getProducto().getNombre() + "...     " + mTicket.getLinea(i).getSubtotalNeto());
+            txtAr.append("\n" + (i + 1) + "  | " + prefijo(mTicket.getTipoLinea(i), mTicket.getLinea(i).getCantidad()) + " " +  mTicket.getLinea(i).getProducto().getNombre() + "...          " + mTicket.getLinea(i).getSubtotalNeto());
         }
         txtAr.append("\nTotal: " + mTicket.getTotal());
+        txtAr.append("\nTotal (descontado): " + mTicket.getDescuentoTotal());
         txtAr.append("\n\t- - -");
         txtAr.append("\nGracias por su visita");
         txtAr.append("\n\t- - -");
@@ -148,11 +149,11 @@ public class VistaMain extends javax.swing.JFrame {
     public void imprimir(ModeloTicket mTicket) {
         txtAr.setText("");
         mTicket.getTicketBD();
-        txtAr.append("\nFecha: " + mTicket.getFecha());
+        txtAr.append("Fecha: " + mTicket.getFecha());
         txtAr.append("\nHora: " + mTicket.getHora());
         txtAr.append("\n\t- - -");
         for (int i = 0; i < mTicket.nroLineas(); i++) {
-            txtAr.append("\n" + (i + 1) + "  | " + prefijo(mTicket.getTipoLinea(i), mTicket.getLinea(i).getCantidad()) + " " +  mTicket.getLinea(i).getProducto().getNombre() + "...     " + mTicket.getLinea(i).getSubtotalNeto());
+            txtAr.append("\n" + (i + 1) + "  | " + prefijo(mTicket.getTipoLinea(i), mTicket.getLinea(i).getCantidad()) + " " +  mTicket.getLinea(i).getProducto().getNombre() + "...          " + mTicket.getLinea(i).getSubtotalNeto());
         }
         txtAr.append("\nTotal: " + mTicket.getTotal());
         txtAr.append("\nTotal (descontado): " + mTicket.getDescuentoTotal());
